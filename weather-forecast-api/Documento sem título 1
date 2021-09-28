@@ -1,0 +1,109 @@
+https://servicodados.ibge.gov.br/api/v1/localidades/estados/MA/municipios
+https://api.hgbrasil.com/weather?key=15c0f196&city_name=Caxias,MA
+
+
+
+WeatheForecast(results={temp=32, date=23/09/2021, time=10:05, condition_code=28, description=Tempo nublado, currently=dia, cid=, city=Caxias, MA, img_id=28, humidity=36, wind_speedy=2.47 km/h, sunrise=05:42 am, sunset=05:49 pm, condition_slug=cloudly_day, city_name=Caxias, forecast=[{date=23/09, weekday=Qui, max=40, min=21, description=Tempo nublado, condition=cloudly_day}, {date=24/09, weekday=Sex, max=39, min=23, description=Parcialmente nublado, condition=cloud}, {date=25/09, weekday=Sáb, max=40, min=22, description=Parcialmente nublado, condition=cloudly_day}, {date=26/09, weekday=Dom, max=40, min=21, description=Tempo limpo, condition=clear_day}, {date=27/09, weekday=Seg, max=40, min=21, description=Tempo limpo, condition=clear_day}, {date=28/09, weekday=Ter, max=38, min=23, description=Parcialmente nublado, condition=cloudly_day}, {date=29/09, weekday=Qua, max=41, min=21, description=Tempo limpo, condition=clear_day}, {date=30/09, weekday=Qui, max=39, min=23, description=Chuvas esparsas, condition=rain}, {date=01/10, weekday=Sex, max=37, min=23, description=Chuvas esparsas, condition=rain}, {date=02/10, weekday=Sáb, max=40, min=21, description=Chuvas esparsas, condition=rain}]})
+{results={temp=32, date=23/09/2021, time=10:05, condition_code=28, description=Tempo nublado, currently=dia, cid=, city=Caxias, MA, img_id=28, humidity=36, wind_speedy=2.47 km/h, sunrise=05:42 am, sunset=05:49 pm, condition_slug=cloudly_day, city_name=Caxias, forecast=[{date=23/09, weekday=Qui, max=40, min=21, description=Tempo nublado, condition=cloudly_day}, {date=24/09, weekday=Sex, max=39, min=23, description=Parcialmente nublado, condition=cloud}, {date=25/09, weekday=Sáb, max=40, min=22, description=Parcialmente nublado, condition=cloudly_day}, {date=26/09, weekday=Dom, max=40, min=21, description=Tempo limpo, condition=clear_day}, {date=27/09, weekday=Seg, max=40, min=21, description=Tempo limpo, condition=clear_day}, {date=28/09, weekday=Ter, max=38, min=23, description=Parcialmente nublado, condition=cloudly_day}, {date=29/09, weekday=Qua, max=41, min=21, description=Tempo limpo, condition=clear_day}, {date=30/09, weekday=Qui, max=39, min=23, description=Chuvas esparsas, condition=rain}, {date=01/10, weekday=Sex, max=37, min=23, description=Chuvas esparsas, condition=rain}, {date=02/10, weekday=Sáb, max=40, min=21, description=Chuvas esparsas, condition=rain}]}}
+
+{
+    "results": {
+        "temp": 32,
+        "date": "23/09/2021",
+        "time": "10:05",
+        "condition_code": "28",
+        "description": "Tempo nublado",
+        "currently": "dia",
+        "cid": "",
+        "city": "Caxias, MA",
+        "img_id": "28",
+        "humidity": 36,
+        "wind_speedy": "2.47 km/h",
+        "sunrise": "05:42 am",
+        "sunset": "05:49 pm",
+        "condition_slug": "cloudly_day",
+        "city_name": "Caxias",
+        "forecast": [
+            {
+                "date": "23/09",
+                "weekday": "Qui",
+                "max": 40,
+                "min": 21,
+                "description": "Tempo nublado",
+                "condition": "cloudly_day"
+            },
+            {
+                "date": "24/09",
+                "weekday": "Sex",
+                "max": 39,
+                "min": 23,
+                "description": "Parcialmente nublado",
+                "condition": "cloud"
+            },
+            {
+                "date": "25/09",
+                "weekday": "Sáb",
+                "max": 40,
+                "min": 22,
+                "description": "Parcialmente nublado",
+                "condition": "cloudly_day"
+            },
+            {
+                "date": "26/09",
+                "weekday": "Dom",
+                "max": 40,
+                "min": 21,
+                "description": "Tempo limpo",
+                "condition": "clear_day"
+            },
+            {
+                "date": "27/09",
+                "weekday": "Seg",
+                "max": 40,
+                "min": 21,
+                "description": "Tempo limpo",
+                "condition": "clear_day"
+            },
+            {
+                "date": "28/09",
+                "weekday": "Ter",
+                "max": 38,
+                "min": 23,
+                "description": "Parcialmente nublado",
+                "condition": "cloudly_day"
+            },
+            {
+                "date": "29/09",
+                "weekday": "Qua",
+                "max": 41,
+                "min": 21,
+                "description": "Tempo limpo",
+                "condition": "clear_day"
+            },
+            {
+                "date": "30/09",
+                "weekday": "Qui",
+                "max": 39,
+                "min": 23,
+                "description": "Chuvas esparsas",
+                "condition": "rain"
+            },
+            {
+                "date": "01/10",
+                "weekday": "Sex",
+                "max": 37,
+                "min": 23,
+                "description": "Chuvas esparsas",
+                "condition": "rain"
+            },
+            {
+                "date": "02/10",
+                "weekday": "Sáb",
+                "max": 40,
+                "min": 21,
+                "description": "Chuvas esparsas",
+                "condition": "rain"
+            }
+        ]
+    }
+}

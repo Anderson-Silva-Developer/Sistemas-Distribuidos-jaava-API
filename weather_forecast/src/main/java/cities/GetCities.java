@@ -1,6 +1,8 @@
 package cities;
 
-import configurationConsumer.ConfigurationUrlConsumed;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import consumer.Consumer;
 import consumer.CurrentConsumer;
 import org.apache.http.HttpEntity;
@@ -8,20 +10,32 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.util.EntityUtils;
-
 import java.io.IOException;
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class GetCities {
-    private  String name;
+    private static Map<String,String> name=new HashMap<>();
     private  String state;
     private Consumer consumer;
+    private  Map<String,String>  urlConsumedList=new HashMap<>();
 
-    public String getName() {
+    public Map<String, String> getUrlConsumedList() {
+        return urlConsumedList;
+    }
+
+    public void setUrlConsumedList(Map<String, String> urlConsumedList) {
+        this.urlConsumedList = urlConsumedList;
+    }
+
+    public Map<String, String> getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Map<String, String> name) {
         this.name = name;
     }
 
@@ -41,15 +55,17 @@ public class GetCities {
         this.consumer = consumer;
     }
 
-    private GetCities(String name, String state, Consumer consumer) {
+    private GetCities(Map<String,String> name, String state, Consumer consumer,Map<String,String>  urlConsumedList) {
         this.name=name;
         this.state = state;
         this.consumer = consumer;
+        this.urlConsumedList=urlConsumedList;
     }
     public static class GetCityBuilder{
-        private  String name;
+        private Map<String,String> name=new HashMap<>();
         private  String state;
         private Consumer consumer;
+        private  Map<String,String>  urlConsumedList=new HashMap<>();
 
         public GetCityBuilder() {}
 
@@ -57,22 +73,27 @@ public class GetCities {
             this.state=state;
             return this;
         }
+        public  GetCityBuilder urlConsumedList(Map<String,String>  urlConsumedList){
+            this.urlConsumedList=urlConsumedList;
+            return this;
+        }
         public GetCities createGetcity(){
-            return new GetCities(name,state,consumer);
+            return new GetCities(name,state,consumer,urlConsumedList);
         }
 
     }
     public void  setCurrentConsume(){
-        ConfigurationUrlConsumed getUrlconsumed = new ConfigurationUrlConsumed();
         this.consumer=new CurrentConsumer().createConsumer();
-        getUrlconsumed.InitUrlListConsumed();
         this.getConsumer()
                 .getHttpGet()
-                .setURI(URI.create(getUrlconsumed
-                .getUrlConsumedList().get("CityPerState")+this.state+"/municipios"));
+                .setURI(URI.create(this.urlConsumedList.get("CityPerState")));
     }
 
-    public void searchCities() throws IOException {
+    public void searchCities(String state) throws IOException {
+        String url=this.urlConsumedList.get("CityPerState")+state+"/municipios";
+        this.getConsumer()
+                .getHttpGet()
+                .setURI(URI.create(url));
 
         ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
             @Override

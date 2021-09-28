@@ -1,0 +1,54 @@
+Manifest-Version: 1.0
+Main-Class: br.com.andersonsilva.FirstMain
+Class-Path: google-http-client-apache-v2-1.39.2.jar jackson-dataformat-h
+ al-1.0.4.jar logback-core-1.2.5.jar jakarta.transaction-api-1.3.3.jar n
+ etty-transport-4.1.67.Final.jar netty-codec-4.1.67.Final.jar antlr-2.7.
+ 7.jar jandex-2.2.3.Final.jar spring-jdbc-5.3.9.jar jsr305-3.0.2.jar log
+ 4j-to-slf4j-2.13.3.jar httpcore-4.4.14.jar jwt-1.0.1.jar javax.activati
+ on-api-1.2.0.jar netty-codec-http2-4.1.67.Final.jar jul-to-slf4j-1.7.32
+ .jar opencensus-api-0.28.0.jar opencensus-contrib-http-util-0.28.0.jar 
+ jjwt-api-0.10.5.jar spring-boot-starter-2.4.10.jar snakeyaml-1.27.jar s
+ pring-boot-starter-webflux-2.4.10.jar google-api-client-1.31.5.jar spri
+ ng-boot-starter-json-2.4.10.jar javassist-3.27.0-GA.jar netty-resolver-
+ dns-4.1.67.Final.jar annotations-13.0.jar spring-boot-2.4.10.jar spring
+ -web-5.3.9.jar checker-compat-qual-2.5.5.jar tomcat-embed-websocket-9.0
+ .52.jar jakarta.activation-1.2.2.jar netty-common-4.1.67.Final.jar log4
+ j-api-2.13.3.jar spring-boot-starter-jdbc-2.4.10.jar jakarta.annotation
+ -api-1.3.5.jar commons-codec-1.15.jar spring-beans-5.3.9.jar listenable
+ future-9999.0-empty-to-avoid-conflict-with-guava.jar grpc-context-1.27.
+ 2.jar jackson-module-jaxb-annotations-2.11.4.jar httpclient-4.5.13.jar 
+ jakarta.activation-api-1.2.2.jar spring-jcl-5.3.9.jar netty-handler-pro
+ xy-4.1.67.Final.jar reactive-streams-1.0.3.jar kotlin-stdlib-jdk8-1.4.3
+ 2.jar jackson-databind-2.11.4.jar commons-logging-1.2.jar gson-2.8.8.ja
+ r jackson-module-parameter-names-2.11.4.jar classmate-1.5.1.jar commons
+ -lang3-3.11.jar spring-core-5.3.9.jar commons-io-2.5.jar netty-resolver
+ -dns-native-macos-4.1.67.Final-osx-x86_64.jar jaxb-api-2.3.1.jar jboss-
+ logging-3.4.2.Final.jar tomcat-embed-core-9.0.52.jar spring-tx-5.3.9.ja
+ r netty-transport-native-epoll-4.1.67.Final-linux-x86_64.jar reactor-co
+ re-3.4.9.jar spring-webmvc-5.3.9.jar spring-context-5.3.9.jar istack-co
+ mmons-runtime-3.0.12.jar spring-boot-starter-data-jpa-2.5.4.jar hiberna
+ te-core-5.4.32.Final.jar dom4j-2.1.3.jar spring-boot-starter-tomcat-2.4
+ .10.jar client-6.4.0.jar HikariCP-3.4.5.jar spring-boot-starter-web-2.4
+ .10.jar hibernate-commons-annotations-5.1.2.Final.jar guava-30.1.1-andr
+ oid.jar failureaccess-1.0.1.jar spring-orm-5.3.9.jar spring-data-jpa-2.
+ 4.12.jar jackson-core-2.11.4.jar lombok-1.18.20.jar kotlin-stdlib-1.4.3
+ 2.jar google-oauth-client-1.31.5.jar spring-data-commons-2.4.12.jar jjw
+ t-jackson-0.10.5.jar spring-webflux-5.3.9.jar jackson-datatype-jsr310-2
+ .11.4.jar netty-codec-dns-4.1.67.Final.jar byte-buddy-1.10.22.jar googl
+ e-http-client-gson-1.39.2.jar jackson-annotations-2.11.4.jar netty-buff
+ er-4.1.67.Final.jar jackson-jaxrs-base-2.11.4.jar jjwt-impl-0.10.5.jar 
+ spring-boot-starter-reactor-netty-2.4.10.jar j2objc-annotations-1.3.jar
+  slf4j-api-1.7.32.jar spring-aspects-5.3.9.jar reactor-netty-http-1.0.1
+ 0.jar txw2-2.3.5.jar netty-resolver-4.1.67.Final.jar jakarta.el-3.0.3.j
+ ar logback-classic-1.2.5.jar kotlin-stdlib-jdk7-1.4.32.jar jaxb-runtime
+ -2.3.5.jar spring-boot-devtools-2.4.10.jar spring-expression-5.3.9.jar 
+ mysql-connector-java-8.0.26.jar jakarta.persistence-api-2.2.3.jar netty
+ -codec-http-4.1.67.Final.jar kotlin-stdlib-common-1.4.32.jar netty-tran
+ sport-native-unix-common-4.1.67.Final.jar aspectjweaver-1.9.7.jar jacks
+ on-jaxrs-json-provider-2.11.4.jar jakarta.xml.bind-api-2.3.3.jar error_
+ prone_annotations-2.5.1.jar netty-codec-socks-4.1.67.Final.jar google-h
+ ttp-client-1.39.2.jar spring-boot-starter-aop-2.4.10.jar spring-boot-st
+ arter-logging-2.4.10.jar jackson-datatype-jdk8-2.11.4.jar reactor-netty
+ -core-1.0.10.jar netty-handler-4.1.67.Final.jar spring-boot-autoconfigu
+ re-2.4.10.jar spring-aop-5.3.9.jar
+
