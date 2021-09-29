@@ -9,7 +9,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BackgroundImage;
 
+import java.net.URL;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -69,13 +71,15 @@ public class ActionStates {
             String name=strName.split("name")[1];
             String url = "/img/flags/" + name.toLowerCase() + ".png";
             try {
-                Image flag = new Image(Main.class.getResourceAsStream(url), 50, 35, false, false);
+
+                Image flag = new Image(Main.class.getResourceAsStream(url), 40, 25, false, false);
                 ((Label) node).getTooltip().setGraphic(new ImageView(flag));
                 ((Label) node).getTooltip().setText(  listStateName.get(strName.split("name")[1]));
-                ((Label) node).getTooltip().setStyle("-fx-font: normal bold 18 Langdon; "
+                ((Label) node).getTooltip().setStyle("-fx-font: normal bold 14 Langdon; "
                         + "-fx-base: #AE3522; "
-                        + "-fx-text-fill: green;"
-                        + "-fx-background-color:black ;"
+                        + "-fx-text-fill:green;"
+
+
                 );
 
 

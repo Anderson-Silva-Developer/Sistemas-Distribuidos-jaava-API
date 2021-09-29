@@ -4,7 +4,6 @@ module br.com.andersonsilva.weather_forecast {
     requires org.apache.httpcomponents.httpcore;
     requires org.apache.httpcomponents.httpclient;
     requires com.google.gson;
-    requires FXTrayIcon;
     requires java.desktop;
 
 

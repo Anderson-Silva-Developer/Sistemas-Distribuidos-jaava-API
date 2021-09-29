@@ -6,20 +6,17 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import componentsGUI.ComboBoxCities;
 import componentsGUI.PaneWeather;
+import componentsGUI.Screen;
+import componentsGUI.ScreenAction;
 import configurationState.ActionStates;
 import configurationState.SetStateName;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import searches.SearchesCities;
 import searches.SearchesWeather;
@@ -57,7 +54,10 @@ public class Controller {
     private ComboBox<String> cities;
     @FXML
     private SVGPath imgteste;
-
+    @FXML
+    private  TitledPane aba01,aba02;
+    @FXML
+    private MenuItem screenExit,screenMinimize;
     ComboBoxCities comboBoxCities=new ComboBoxCities();
     PaneWeather paneWeather=new PaneWeather();
     GetCities getCities=new ConfigurationCitiesDefault().createCityDefaul();
@@ -71,6 +71,10 @@ public class Controller {
     public static ImageView img_id;
     @FXML
     void initialize() throws IOException{
+
+        new ScreenAction().actionScreen(AccordionMain,this.aba01,this.aba02);
+        new Screen().ActionMenuItem(AccordionMain,this.screenExit,this.screenMinimize);
+
          img_id=img_id_;
          resultWeather=componentsWeatherGUI.InitiResultWeather(city,temp,date,time,description,currently);
          componentsWeatherGUI.arrayWeatherSet(p1_weekdayDate,p1_max,p1_min,p1_description);
@@ -81,10 +85,6 @@ public class Controller {
         componentsWeatherGUI.arrayWeatherSet(p6_weekdayDate,p6_max,p6_min,p6_description);
 
         arrayWeather= componentsWeatherGUI.getArrayWeather();
-
-        imgteste.setFill(Color.BLUE);
-        AccordionMain.getPanes().get(0).setGraphic(imgteste);
-
         getCities.setCurrentConsume();
         getCities.searchCities(getCities.getState());
         comboBoxCities.Fill(cities,
@@ -155,6 +155,7 @@ public class Controller {
                 String city = URLEncoder.encode(this.cities.getValue(), "UTF-8");
                 boolean search=searchesWeather.searchesWeather(paneWeather,weather,cities);
                 if(search){
+
                     this.AccordionMain.getPanes().get(1).setExpanded(true);
 
                 }

@@ -3,7 +3,9 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TitledPane?>
@@ -15,9 +17,9 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<Accordion fx:id="AccordionMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.andersonsilva.weather_forecast.Controller">
+<Accordion fx:id="AccordionMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="950.0" style="-fx-background-color:blue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.andersonsilva.weather_forecast.Controller">
   <panes>
-    <TitledPane fx:id="aba01" expanded="false" text="Forecast Brazil">
+    <TitledPane fx:id="aba01" expanded="false" text="                                                                                    Forecast Brazil" textAlignment="CENTER">
          <content>
 
              <AnchorPane fx:id="anchorPaneMaps" minHeight="0.0" minWidth="0.0" prefHeight="432.0" prefWidth="666.0">
@@ -27,7 +29,23 @@
                         <Image url="@../../../../imgWeather/fundo.jpg" />
                      </image>
                   </ImageView>
-                  <Pane layoutX="-1.0" layoutY="-1.0" opacity="0.87" prefHeight="581.0" prefWidth="950.0" style="-fx-background-color: #000;" />
+                  <Pane layoutX="-1.0" layoutY="-1.0" opacity="0.91" prefHeight="581.0" prefWidth="950.0" style="-fx-background-color: #000;">
+                     <children>
+                        <Accordion fx:id="searchCityWeather" layoutX="595.0" layoutY="199.0" prefHeight="92.0" prefWidth="266.0">
+                          <panes>
+                            <TitledPane alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="69.0" prefWidth="211.0" text="Cities of the" textAlignment="JUSTIFY">
+                                 <content>
+                                       <ComboBox fx:id="cities" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="239.0" promptText="Adamantina" style="-fx-background-color: #006400;" visibleRowCount="5" />
+                                 </content>
+                              </TitledPane>
+                            <TitledPane alignment="TOP_CENTER" contentDisplay="TOP" text="Search Weather">
+                                 <content>
+                                       <Button mnemonicParsing="false" onAction="#searchWeather" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: #006400;" text="weather" />
+                                 </content>
+                              </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children></Pane>
                      <SVGPath fx:id="AC" content="M30.47,237.77L28.39,237.73L28.93,235.92L28.72,235.09L28.47,234.6L27.22,233.9L27.08,233.45L27.35,232.3L26.58,230.35L25.49,229.71L19.89,228.46L12.55,228.27L12.82,227.71L15.31,225.45L16.2,224.22L16.49,223.02L16.27,221.79L15.59,220.88L14.76,220.44L13.08,217.49L12.31,217.05L11.41,216.86L10.28,215.73L9.36,213.35L7.36,211.82L6.38,208.2L5.51,206.56L3.63,205.48L3.55,204.31L4.36,204.41L4.78,203.89L4.85,203.22L4.65,202.8L2.53,201.87L2.17,201.21L0,199.32L0.04,198.95L0.66,198.9L1.16,197.58L1.15,196.27L4.16,195.88L4.66,195.49L4.44,194.14L3.27,192.57L3.27,192.57L21.22,200.05L44.88,205.71L57.02,208.85L83.46,223.02L111.97,235.15L111.97,235.15L114.94,236.41L114.94,236.41L114.64,236.89L113.07,237.55L110.98,239.14L108.12,241.93L106.47,242.79L105.81,242.61L104.28,242.79L104.23,243.35L102.31,244.65L100.23,245.64L98.79,247.47L98.35,248.65L97.74,248.93L96.57,248.18L95.81,248.05L93.44,248.1L92.76,248.36L92.13,248.81L91.77,249.67L89.33,253.15L85.56,254.4L84.72,255.09L82.78,255.6L81.75,255.63L81.83,253.52L80.47,253.72L76.92,252.95L71.68,252.48L66.59,252.86L65.93,252.28L63.66,252.11L60.1,253.94L57.37,254.56L55.69,253.89L54.29,252.45L52.65,253.61L52.69,236.06L52.74,234.96L53.21,234.25L53.28,231.9L53.02,231.02L53.99,229.84L54.47,228.7L53.31,228.9L50.34,231.49L48.74,232.5L46.68,234.88L44.73,235.55L44.08,236.63L42.27,237.62z" fill="#e3d871" layoutX="64.0" layoutY="13.0" onMouseClicked="#searchCities" scaleX="0.8" scaleY="0.8" scaleZ="0.8" />
                      <SVGPath fx:id="AL" content="M561.91,230.3L561.71,229.57L560.29,228.79L559.84,228.88L558.82,228.59L558.28,227.19L558.28,227.19L559.6,226.12L560.24,225.03L562.41,224.27L564.79,220.98L564.88,220.29L565.7,219.69L566.7,220.91L568.37,221.21L569.45,221.09L572,223.11L573.9,225.23L575.68,226.28L577.59,226.76L580.09,226.11L583.23,226.4L584.4,226.29L586.26,225.23L587.42,225.28L589.23,224.17L591.41,221.88L591.53,221.43L593.08,220.19L595.08,219.95L597.32,220.8L599.88,219.51L601.35,219.32L603.27,220.13L606.17,220.4L606.44,220.61L606.44,220.61L603.66,225.57L599.11,230.7L595.53,234.28L592.49,238.86L589.16,241.74L588.16,243.77L586.84,245.56L586.84,245.56L586.24,244.25L582.65,242.02L582.19,241.99L580.53,241.2L578.77,239.75L577.47,237.3L572.05,234.23L568.37,233.28z" fill="#49a4a4" layoutX="-39.0" layoutY="20.0" onMouseClicked="#searchCities" scaleX="0.8" scaleY="0.8" scaleZ="0.8" />
                      <SVGPath fx:id="AM" content="M165.82,47.29L166.54,48.07L167.29,48.41L167.9,48.42L169.03,48L169.66,48.11L169.72,49.07L170.93,50.24L171.9,50.61L172.78,50.4L174.14,50.51L176.09,51.46L176.58,52.12L175.67,55.44L174.96,56.94L177.69,60.68L179.35,65.44L179.54,67.7L180.41,68.82L180.46,69.27L178.84,70.73L179.2,72.32L179.86,73.9L179.09,76.94L178.52,77.9L178.81,82.88L179.69,85.05L180.91,85.89L181.49,86.79L182.62,91.12L182.56,91.7L181.42,93.02L179.58,92.69L179.44,93.83L184.45,98.25L184.97,98.29L186.93,99.6L188.41,101.25L189.45,103.29L189.98,103.36L191.32,102.94L193.68,103.98L193.24,101.87L193.99,99.58L194.24,97.85L193.87,96.05L194.69,93.08L195.71,91.82L196.99,91.13L199.08,90.42L199.63,89.53L201.23,89.47L204.06,90.4L205.93,92.44L206.85,94.95L208.67,95.18L209.92,94.72L211.33,93.31L213.36,92.76L213.78,92.37L213.8,91.84L212.66,90.43L212.43,89.7L212.54,89.04L213.69,86.4L213.76,85.27L215.42,82.24L217.75,78.98L217.72,78.3L236.21,78.37L236.21,78.37L236.61,83.23L236.18,84.68L236.36,86.95L236.6,87.63L238.3,88.48L238.48,88.89L238.13,89.58L238.08,91.69L239.91,93.68L240.27,93.87L240.97,93.69L242.81,94.92L243.36,96.75L243.4,97.68L243.7,98.13L248.34,101.9L252.92,104.44L253.55,105.34L254.9,106.43L256.78,107.1L259.15,108.41L261.41,109.06L262.77,109.21L264.09,110.03L264.17,110.64L265.44,111.98L268.14,113.42L269.24,115.59L271.11,116.38L271.96,115.77L273.34,115.42L273.53,115.9L273.4,116.68L275.21,118.35L245.31,182.59L244.53,183.9L243.08,185.03L242.5,186L242.47,187.13L243.29,189.46L243.67,190.03L244.74,190.61L246.32,192.17L246.96,193.43L247.11,195.39L247.68,195.96L247.68,195.96L246.5,197.16L246.3,197.77L246.24,198.53L246.58,199.37L246.31,200.38L245.11,202.2L244.25,202.84L243.83,203.69L243.93,204.54L244.59,205.91L245.05,207.85L243.67,212.07L242.49,217.29L241.28,218.02L193.43,218.34L193.43,218.34L193.47,217.64L193.11,217.26L191.72,216.98L189.8,218.06L189.26,219.8L188.58,219.99L185.34,218.51L184.66,215.63L184.04,215.43L183.06,215.56L182.6,215.35L181.35,212.08L178.81,211.1L177.48,209.83L176.68,207.92L176.23,207.43L174.08,206.3L163.29,206.36L161.91,208.92L160.19,209.42L160.28,210.59L160.02,210.81L157.54,211.34L156.35,212.93L156.3,213.6L157.2,214.3L157.37,214.75L157.01,215.77L156.2,216.92L154.14,218.13L154.03,219.94L154.27,221.4L150.4,220.94L148.27,221.32L147.07,222.39L145.28,222.29L144.44,221.74L143.98,221.72L142.23,222.98L141.7,223.82L141.96,225.57L139.42,228.73L138.74,228.81L138.06,228.28L137.42,226.02L137.04,225.93L135.2,226.95L133.9,228.16L132.53,228.55L131.76,228.42L130.68,228.92L130.27,229.45L130.14,230.17L128.92,230.96L128.55,230.98L126.24,228.65L125.52,228.28L122.65,228.61L118.69,228.35L118.85,229.64L118.7,230.2L117.15,232.01L115.23,232.59L111.97,235.15L111.97,235.15L83.46,223.02L57.02,208.85L44.88,205.71L21.22,200.05L3.27,192.57L3.27,192.57L3.2,191.92L3.9,189L5.12,187.6L10.04,184.13L12.3,183.89L12.77,183.59L13.75,182.03L13.83,181L12.09,176.51L12.47,175.32L13.65,173.13L14.93,171.81L15.85,170.56L16.27,169.58L16.57,167.84L16.28,166.52L16.95,164.48L17.26,162.17L17.99,161.42L21.65,159.79L23.84,158.56L24.99,157.52L25.43,156.12L26.21,155.75L27.62,155.64L29.27,154.71L32.81,151.98L35.23,151.55L36.74,151.84L40.93,150.62L42.43,149.85L44.25,149.49L47.58,149.87L48.88,148.28L49.51,146.83L50.6,146.22L52.74,146.42L53.38,146.96L54.7,146.72L55.8,145.98L57.51,146.1L57.82,146.63L57.8,147.81L59.41,149.1L62.24,149.18L62.82,148.78L63.28,148L63.17,147.61L64.34,142.69L71.04,105.52L72.2,102.6L71.21,97.64L71.33,97.38L70.03,96.33L68.55,93.58L68.51,93.09L69.16,91.7L68.64,89.92L68.27,89.52L66.57,88.93L63.54,86.58L61.6,84.3L61.8,72.79L65.69,72.53L67.44,71.36L70.94,70.44L73.62,72.2L74.84,72.31L76.11,71.88L75.62,70.19L75.92,68.47L74.55,66.37L73.98,65.83L72.83,65.23L71.32,65.76L68.53,65.15L64.96,65.24L64.9,55.34L65.86,55.38L67.18,54.8L69.46,54.2L72.3,55.07L91.33,55.13L90.87,54.47L90.08,54.33L89.7,53.13L90.65,51.2L92.08,51.6L92.69,53.12L93.56,54.44L94.22,54.79L95.05,54.8L96.66,54.19L98.6,52.1L98.92,51.26L100.18,50.02L102.73,48.63L104.02,49.09L105.19,51.67L106.81,53.66L107.55,54.96L108.21,56.74L108.44,58.29L107.95,61.92L108.15,63.68L111.35,62.93L119.66,69.99L120.45,70.27L122.95,70.48L125.25,69.48L126.95,67.78L129.06,66.62L131.25,66.51L131.81,66.8L132.58,67.88L132.56,68.85L131.45,70.55L131.82,71.53L132.4,71.8L133.73,71.08L134.29,70.17L134.52,68.88L135.52,67.72L135.99,67.49L136.99,67.67L137.54,67.49L137.95,66.83L138.41,64.52L138.92,64.15L140.43,63.79L143.36,62.02L144.33,62.57L145.26,62.28L146.86,61.24L147.88,59.63L149.99,58.42L152.02,58.97L154.38,57.32L154.93,56.5L155.37,53.84L155.34,52.55L156.11,51.63L157.14,51.21L158.88,51.19L160.22,50.8L162.28,49.2L163.24,48.83L165.52,48.53z" fill="#86c98c" layoutX="54.0" layoutY="38.0" onMouseClicked="#searchCities" scaleX="0.8" scaleY="0.8" scaleZ="0.8" />
@@ -55,211 +73,215 @@
                      <SVGPath fx:id="SE" content="M569.94,261.69L567.04,262.58L565.49,261.94L564.95,261.6L564.47,260.88L562.55,259.96L561.95,259.44L561.83,259.03L562.17,258.64L562.3,257.22L562.15,256.83L560.72,255.32L560.2,253.83L559.11,253.16L558.15,251.56L558.13,250.79L558.72,249.21L559.04,248.91L560.74,248.92L561.87,249.67L564.42,248.68L565.11,248.13L565.41,247.55L564.65,244.8L564.73,243.92L565.39,242.3L565.47,239.19L564.72,238.04L562.73,236.09L561.46,233.59L561.24,231.45L561.91,230.3L561.91,230.3L568.37,233.28L572.05,234.23L577.47,237.3L578.77,239.75L580.53,241.2L582.19,241.99L582.65,242.02L586.24,244.25L586.84,245.56L586.84,245.56L584.46,246.32L579.89,249.26L578.92,250.15L577.37,252.36L577.05,252.34L577.16,251.24L576.11,249.42L575.12,249.58L575.46,250.74L576.7,250.74L576.93,250.98L576.41,252.95L575.14,255.04L574.61,254.69L574.24,254.02L573.25,253.86L573.45,254.54L574.58,255.16L574.32,256.93L573.46,258.08L572.53,260.11L571.75,260.26L571.45,259.8L571.93,258.4L572.34,258.27L572.65,257.84L573.02,256.8L572.21,256.43L572.31,257.11L571.86,258.24L571.38,258.74L571.12,259.83L571.4,260.55L571.14,261.07z" fill="#86c98c" layoutX="-39.0" layoutY="16.0" onMouseClicked="#searchCities" scaleX="0.8" scaleY="0.8" scaleZ="0.8" />
                      <SVGPath fx:id="SP" content="M404.58,487.92l-0.16,-1.33l-1.42,-0.57l-0.73,-3.3l0.4,-1.95l-2.14,-0.58l-0.76,0.17l-1.1,2.77l-0.66,0.85l-1.06,-0.53l-0.35,-0.78l0.69,-3.3l0.89,-0.66l0.14,-0.4l-1.61,-1.27l-1.59,-0.13l-1.58,0.19l-0.5,-0.38l-3.41,0.53l-2.38,0.12l-1.01,-0.21l-0.6,-0.39l-0.33,-2.04l1.28,-2.12l0.25,-1.05l-0.25,-0.44l-0.6,-0.3l-0.92,-1.97l0.06,-0.89l-0.5,-0.68l-0.67,-0.29l-1.21,-1.14l-1.49,-3.01l0.36,-0.55l0.08,-1.76l-1.3,-1.52l-0.38,-1.84l0.17,-0.81l0.39,-0.58l-0.02,-2.74l-0.89,-1.76l-3.59,-2.83l-1.13,-1.55l-2.97,0.86l-5.31,-0.13l-0.66,-0.54l-1.65,-0.14l-0.42,0.34l-1.72,-0.07l-0.72,-1.32l-0.63,-0.51l-3.51,-0.8l-1.75,-0.84l-0.78,-1l-2.58,0.01l-1.07,0.54l-1.32,-0.13l-2.64,-1.09l-2.53,-0.46l-1.48,-0.79l-1.17,-0.29l-0.73,0.37l-0.34,0.6l-1.21,0.62l-3.28,-0.29l-4.01,0.11l-3.83,-0.65l-3.25,2.29l0,0l0.84,-1.08l0.73,-1.54l1.26,-1.14l7.56,-4.54l1.95,-1.87l1.26,-2.43l1.73,-1.69l0.4,-1.21l1.44,-1.03l0.28,-1.22l-0.35,-0.84l2,-2.26l1.21,-2.34l0.07,-0.94l-0.31,-1.93l0.23,-0.39l0.96,-0.52l2.6,-3.64l0.16,-2.93l0.62,-1.68l1.01,-0.3l0.73,-0.64l1.99,-2.68l1.22,-1.02l0.47,-0.23l1.31,-0.04l1.5,-0.78l0.28,-0.4l0.4,-2.46l0,0l1.22,-1.13l2.15,-1.11l1.92,-0.37l1.43,-1.69l1.5,-0.61l0.75,0.14l1.73,1.55l2.55,0.08l4.29,0.96l1.67,-0.36l1.62,0.22l2,-0.59l2.18,1.42l1.67,0.79l-0.13,0.92l0.33,1.42l1.21,2.09l0.63,0.03l0.54,-0.32l0.67,-0.94l0.41,-1.13l0.26,-0.19l0.55,0.05l0.36,0.39l0.25,0.96l0.01,2.78l1.2,0.53l0.41,-0.45l-0.27,-2.54l0.49,-1.19l0.45,-0.48l8.18,-0.67l1.01,-1.25l1.5,1.46l1.12,0.43l2.78,-0.69l0.44,-0.99l-0.2,-0.46l0.31,-0.61l2.38,-0.11l1.66,0.78l0.85,-0.64l1.31,-0.29l3.26,3.35l0.2,1.04l-0.57,1.01l-0.29,2.37l0.58,0.61l1.89,1.21l0.4,1.55l-0.06,0.56l-1.52,2.03l-0.18,1.94l0.79,0.74l0.31,0.61l0.37,2.21l1.3,1.8l0.83,1.99l-0.03,0.85l1.61,-0.05l0.78,-0.31l0.28,-0.36l1,-0.05l3.7,1.32l0.23,0.37l-0.05,1.27l-0.7,2.18l-1.86,2.72l0.26,2.94l-0.19,3.45l-0.53,1.56l0.72,1.6l1.78,1.24l1.81,0.83l0.51,1.72l-1.21,0.7l2.02,3.31l1.13,0.25l2.01,-0.24l0.18,0.53l3.62,-1l0.56,0.42l1.31,-0.32l0.75,-0.98l0.05,-0.84l-0.24,-0.24l0.17,-2.3l1.19,-0.33l0.09,0.35l-0.35,0.49l0.01,0.48l2.34,0.08l2.39,-0.25l1.79,-0.67l1.23,-1.24l1.93,-1.02l2.21,-0.22l1.24,-0.73l0,0l1.27,0.54l0.56,1.17l1.23,1.59l1.77,0.39l3.15,-0.53l1.7,0.01l0.75,1.64l-1.65,2.15l-1.5,0.71l-2.77,0.36l-0.5,-0.15l-2.35,1.01l-1.09,1.15l-1.09,3.5l0.05,0.41l1.63,1.73l0.48,0.26l0,0l-0.06,0.2l-1.69,0.42l-1.06,-0.82l-1.48,1.11l-0.43,0.65l0.27,0.22l-0.76,0.64l-3.22,1.55l-2.25,0.7l-0.28,0.44l0.04,0.96l0.5,1.55l-0.32,0.42l-1.4,0.26l-0.7,-0.64l-1.34,-0.29l-3.12,-0.5l-0.86,0.15l-1.32,0.34l-1.73,0.82l-0.5,0.51l-1.21,2.15l-1.31,0.57l-0.5,-0.12l0.58,-0.47l-0.48,-1.22l-1.17,-0.85l-0.83,1.23l0.26,0.75l-0.3,0.61l-7.62,4.24l-0.95,0.82l-0.31,1.16l-3.27,3l-3.25,1.95l-1.92,0.53l-4.5,3.21l-2.33,1.96l-0.67,0.08l-0.44,0.62l0.9,0.43l0.66,0.06l0.93,-0.36l0,0.76l-0.62,1.31l-1.32,0.85L404.58,487.92zM448.89,464.91l-1.54,-0.65l-1.16,0.18l-0.49,-0.38l0.1,-0.78l0.95,-0.65l1.09,-1.85l0.72,0.25l0.66,0.65l0.13,2.91L448.89,464.91z" fill="#e3d871" layoutX="-2.0" layoutY="-21.0" onMouseClicked="#searchCities" scaleX="0.8" scaleY="0.8" scaleZ="0.8" />
                      <SVGPath fx:id="TO" content="M433.35,281.82L427.99,283.24L426.25,284.58L423.69,285.68L422.14,285.68L417.61,286.68L415.09,288.76L413.31,289.66L412.85,289.42L411.34,286.8L410.79,286.77L410.28,290.07L409.59,290.15L406.24,289.47L403.11,288L403.67,286.44L403.45,285.7L398.92,286.23L396.16,285.89L395.6,286.43L395.3,287.43L394.55,288.18L393.41,288.13L392.8,285.03L391.69,281.32L390.65,279.44L389.5,278.13L388.32,279.1L386.85,281.49L385.22,287.43L384.59,287.66L380.52,286.23L377.43,284.52L373.5,284.12L371.3,283.09L368.9,282.69L369.42,280.35L370.64,278.47L370.67,276.76L370.11,277.06L368.3,279.15L367.64,280.38L367.44,282.26L367.1,282.71L367.1,282.71L366.3,282.69L365.34,282.18L364.36,278.84L365.1,276.08L364.66,273.03L364.14,272.45L364.13,270.88L364.6,267.57L363.5,265.32L363.55,264.82L364.37,263.93L364.53,263.06L363.14,261.72L363.08,260.86L364.96,254.87L365,251.92L365.54,248.95L367.48,243.66L367.85,243.39L368.28,242.54L368.72,239.4L369.82,238.15L370.38,236.26L371.03,235.24L371.03,235.24L372.65,231.55L373.78,227.1L374.93,225.52L376.12,224.42L377.33,222.74L378.36,220.82L379.73,219.9L380.78,219.74L381.51,218.89L382.45,217.35L382.63,216.36L384.33,213.12L385.42,212.32L387.18,207.17L387.84,203.13L387.69,202.83L386.95,202.51L385.28,200.77L384.68,199.82L384.52,198.94L384.66,198.37L386.07,196.68L387.36,194.58L387.3,191.91L386.87,189.73L387.06,189.38L389.53,187.6L392.94,186.46L395.44,185.25L395.68,184.75L395.53,183.24L396.39,181.97L397.9,180.63L399.19,180.48L399.38,179.14L399.09,177.94L399.34,177.48L400.8,177.02L401.44,176.54L402.37,173.79L401.35,172.45L401.26,171.05L401.55,170.77L402.52,170.69L403.24,170.32L403.61,169.66L403.64,169.02L402.38,167.85L401.51,167.71L401.12,167.4L400.1,165.74L398.81,165.62L396.94,165.87L394.65,165.06L394.65,165.06L395.18,164.42L397.8,162.57L399.76,162.04L400.63,162.09L403.41,163.61L404.81,163.69L405.76,163.17L407.5,163.46L408.09,164.15L408.17,165.18L408.45,165.5L409.67,165.53L413.07,166.96L413.91,167.99L414.38,171.49L415.02,172.99L414.81,176.71L415.04,177.79L415.71,178.92L415.7,179.36L413.93,185.51L413.62,187.88L413.9,188.88L413.65,190.47L411.9,192.51L410.14,193.18L409.96,193.89L411.9,195.21L412.32,194.94L413.69,195.18L413.94,195.53L414.05,196.41L413.43,197.6L414.28,199.04L415.16,198.97L418.16,203.13L419.07,203.98L421.35,207L423.49,205.66L427.76,204.72L429.56,205.94L429.64,207.69L429,210.94L429.39,212.29L426,212.64L424.66,213.18L424.09,213.73L423.41,215.16L422.68,217.84L423.05,219.14L420.42,221.69L420.16,222.39L420.36,222.81L422.44,223.1L423.38,223.79L424.12,225.38L424.18,227.04L424.8,228.08L428.68,230.03L428.77,230.56L427.13,232.37L427.26,234.02L429.4,235.64L430.39,238.51L431.73,240.51L432.44,240.69L434.22,240.48L435.22,240.78L436.04,241.22L436.65,242.04L437.93,242.7L437.93,242.7L440.87,242.91L440.87,242.91L440.18,243.56L439.96,244.54L439.4,245.01L435.58,247.03L432.37,249.65L432.18,250.02L433.47,251.82L433.11,252.21L432.1,252.48L431.2,253.09L429.68,256.58L428.67,257.3L428.17,258.46L428.4,259.38L430.26,261.33L433.85,262L435.72,262.99L435.77,263.75L435.21,264.2L433.17,265.01L432.74,265.97L432.83,266.47L433.18,266.8L434.21,266.62L435.13,266.91L435.71,267.42L436,268.06L435.04,268.77L433.89,269.19L431.94,270.86L431.75,271.71L431.7,274.63L432.05,275.88L432.99,276.54L434.04,276.78L434.45,277.03L434.62,277.45L434.67,278.51L433.31,280.89z" fill="#5cbfbf" layoutX="-3.0" layoutY="21.0" onMouseClicked="#searchCities" scaleX="0.8" scaleY="0.8" scaleZ="0.8" />
-                     <Label fx:id="nameRS" layoutX="331.0" layoutY="561.0" onMouseClicked="#searchCities" prefHeight="40.0" prefWidth="51.0" text="RS" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameRS" alignment="CENTER" layoutX="312.0" layoutY="496.0" onMouseClicked="#searchCities" prefHeight="40.0" prefWidth="51.0" text="RS" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameSC" layoutX="391.0" layoutY="529.0" onMouseClicked="#searchCities" prefHeight="28.0" prefWidth="32.0" text="SC" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameSC" alignment="CENTER" layoutX="355.0" layoutY="465.0" onMouseClicked="#searchCities" prefHeight="28.0" prefWidth="32.0" text="SC" textFill="#f5f0f0">
                          <font>
-                             <Font size="19.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="namePR" layoutX="360.0" layoutY="468.0" onMouseClicked="#searchCities" prefHeight="46.0" prefWidth="41.0" text="PR" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameSP" alignment="CENTER" layoutX="370.0" layoutY="396.0" onMouseClicked="#searchCities" prefHeight="41.0" prefWidth="42.0" text="SP" textFill="#f5f0f0">
                          <font>
-                             <Font size="19.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameSP" layoutX="412.0" layoutY="443.0" onMouseClicked="#searchCities" text="SP" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameRJ" layoutX="468.0" layoutY="406.0" onMouseClicked="#searchCities" text="RJ" textFill="#f5f0f0">
+                         <tooltip>
+                             <Tooltip text="Empty Tooltip" />
+                         </tooltip>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     </Label>
+                     <Label fx:id="nameES" layoutX="486.0" layoutY="374.0" onMouseClicked="#searchCities" text="ES" textFill="#f5f0f0">
+                         <tooltip>
+                             <Tooltip text="Empty Tooltip" />
+                         </tooltip>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     </Label>
+                     <Label fx:id="nameMG" alignment="CENTER" layoutX="416.0" layoutY="328.0" onMouseClicked="#searchCities" prefHeight="71.0" prefWidth="67.0" text="MG" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameRJ" layoutX="523.0" layoutY="444.0" onMouseClicked="#searchCities" text="RJ" textFill="#f5f0f0" visible="false">
-                         <tooltip>
-                             <Tooltip text="Empty Tooltip" />
-                         </tooltip>
-                     </Label>
-                     <Label fx:id="nameES" layoutX="550.0" layoutY="406.0" onMouseClicked="#searchCities" text="ES" textFill="#f5f0f0" visible="false">
-                         <tooltip>
-                             <Tooltip text="Empty Tooltip" />
-                         </tooltip>
-                     </Label>
-                     <Label fx:id="nameMG" layoutX="462.0" layoutY="364.0" onMouseClicked="#searchCities" prefHeight="71.0" prefWidth="67.0" text="MG" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameMS" alignment="CENTER" layoutX="294.0" layoutY="363.0" onMouseClicked="#searchCities" prefHeight="60.0" prefWidth="50.0" text="MS" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameMS" layoutX="309.0" layoutY="393.0" onMouseClicked="#searchCities" prefHeight="60.0" prefWidth="50.0" text="MS" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameGO" alignment="CENTER" layoutX="365.0" layoutY="319.0" onMouseClicked="#searchCities" prefHeight="37.0" prefWidth="41.0" text="GO" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameGO" layoutX="397.0" layoutY="344.0" onMouseClicked="#searchCities" text="GO" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameMT" alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="254.0" onMouseClicked="#searchCities" prefHeight="79.0" prefWidth="104.0" text="MT" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameMT" layoutX="275.0" layoutY="265.0" onMouseClicked="#searchCities" prefHeight="79.0" prefWidth="104.0" text="MT" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameTO" alignment="CENTER" layoutX="380.0" layoutY="244.0" onMouseClicked="#searchCities" prefHeight="35.0" prefWidth="40.0" text="TO" textFill="#f5f0f0">
+                         <tooltip>
+                             <Tooltip text="Empty Tooltip" />
+                         </tooltip>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     </Label>
+                     <Label fx:id="nameBA" alignment="CENTER" layoutX="457.0" layoutY="252.0" onMouseClicked="#searchCities" prefHeight="72.0" prefWidth="52.0" text="BA" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameTO" layoutX="418.0" layoutY="256.0" onMouseClicked="#searchCities" text="TO" textFill="#f5f0f0" visible="false">
-                         <tooltip>
-                             <Tooltip text="Empty Tooltip" />
-                         </tooltip>
-                     </Label>
-                     <Label fx:id="nameBA" layoutX="512.0" layoutY="255.0" onMouseClicked="#searchCities" prefHeight="72.0" prefWidth="52.0" text="BA" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="namePI" alignment="CENTER" layoutX="451.0" layoutY="204.0" onMouseClicked="#searchCities" prefHeight="39.0" prefWidth="35.0" text="PI" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="namePI" layoutX="519.0" layoutY="207.0" onMouseClicked="#searchCities" text="PI" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameMA" layoutX="419.0" layoutY="165.0" onMouseClicked="#searchCities" prefHeight="63.0" prefWidth="31.0" text="MA" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameMA" layoutX="463.0" layoutY="148.0" onMouseClicked="#searchCities" prefHeight="63.0" prefWidth="31.0" text="MA" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameCE" alignment="CENTER" layoutX="490.0" layoutY="172.0" onMouseClicked="#searchCities" prefHeight="48.0" prefWidth="27.0" text="CE" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameCE" layoutX="557.0" layoutY="154.0" onMouseClicked="#searchCities" prefHeight="48.0" prefWidth="27.0" text="CE" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameRN" layoutX="536.0" layoutY="197.0" onMouseClicked="#searchCities" text="RN" textFill="#f5f0f0">
+                         <tooltip>
+                             <Tooltip text="Empty Tooltip" />
+                         </tooltip>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     </Label>
+                     <Label fx:id="namePB" layoutX="545.0" layoutY="213.0" onMouseClicked="#searchCities" text="PB" textFill="#f5f0f0">
+                         <tooltip>
+                             <Tooltip text="Empty Tooltip" />
+                         </tooltip>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     </Label>
+                     <Label fx:id="namePE" layoutX="519.0" layoutY="230.0" onMouseClicked="#searchCities" text="PE" textFill="#f5f0f0">
+                         <tooltip>
+                             <Tooltip text="Empty Tooltip" />
+                         </tooltip>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     </Label>
+                     <Label fx:id="nameAL" layoutX="538.0" layoutY="245.0" onMouseClicked="#searchCities" text="AL" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="10.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameRN" layoutX="607.0" layoutY="181.0" onMouseClicked="#searchCities" text="RN" textFill="#f5f0f0" visible="false">
-                         <tooltip>
-                             <Tooltip text="Empty Tooltip" />
-                         </tooltip>
-                     </Label>
-                     <Label fx:id="namePB" layoutX="608.0" layoutY="200.0" onMouseClicked="#searchCities" text="PB" textFill="#f5f0f0" visible="false">
-                         <tooltip>
-                             <Tooltip text="Empty Tooltip" />
-                         </tooltip>
-                     </Label>
-                     <Label fx:id="namePE" layoutX="578.0" layoutY="222.0" onMouseClicked="#searchCities" text="PE" textFill="#f5f0f0" visible="false">
-                         <tooltip>
-                             <Tooltip text="Empty Tooltip" />
-                         </tooltip>
-                     </Label>
-                     <Label fx:id="nameAL" layoutX="614.0" layoutY="242.0" onMouseClicked="#searchCities" text="AL" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameSE" layoutX="525.0" layoutY="257.0" onMouseClicked="#searchCities" text="SE" textFill="#f5f0f0">
                          <font>
-                             <Font size="11.0" />
+                             <Font size="10.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameSE" layoutX="599.0" layoutY="257.0" onMouseClicked="#searchCities" text="SE" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="namePA" alignment="CENTER" layoutX="302.0" layoutY="147.0" onMouseClicked="#searchCities" prefHeight="87.0" prefWidth="94.0" text="PA" textFill="#f5f0f0">
                          <font>
-                             <Font size="12.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="namePA" layoutX="321.0" layoutY="129.0" onMouseClicked="#searchCities" prefHeight="87.0" prefWidth="94.0" text="PA" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameAM" alignment="CENTER" layoutX="152.0" layoutY="148.0" onMouseClicked="#searchCities" prefHeight="85.0" prefWidth="98.0" text="AM" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameAM" layoutX="132.0" layoutY="125.0" onMouseClicked="#searchCities" prefHeight="85.0" prefWidth="98.0" text="AM" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameAC" layoutX="121.0" layoutY="238.0" onMouseClicked="#searchCities" prefHeight="27.0" prefWidth="36.0" text="AC" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameAC" layoutX="88.0" layoutY="242.0" onMouseClicked="#searchCities" prefHeight="27.0" prefWidth="36.0" text="AC" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameRR" layoutX="223.0" layoutY="80.0" onMouseClicked="#searchCities" prefHeight="49.0" prefWidth="35.0" text="RR" textFill="#f5f0f0">
                          <font>
-                             <Font size="18.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameRR" layoutX="217.0" layoutY="53.0" onMouseClicked="#searchCities" prefHeight="49.0" prefWidth="35.0" text="RR" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameAP" layoutX="347.0" layoutY="96.0" onMouseClicked="#searchCities" prefHeight="38.0" prefWidth="26.0" text="AP" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameAP" layoutX="365.0" layoutY="58.0" onMouseClicked="#searchCities" prefHeight="38.0" prefWidth="26.0" text="AP" textFill="#f5f0f0" visible="false">
+                     <Label fx:id="nameRO" layoutX="201.0" layoutY="239.0" onMouseClicked="#searchCities" prefHeight="53.0" prefWidth="32.0" text="RO" textFill="#f5f0f0">
                          <font>
-                             <Font size="20.0" />
+                             <Font size="15.0" />
                          </font>
                          <tooltip>
                              <Tooltip text="Empty Tooltip" />
                          </tooltip>
                      </Label>
-                     <Label fx:id="nameRO" layoutX="191.0" layoutY="235.0" onMouseClicked="#searchCities" prefHeight="53.0" prefWidth="32.0" text="RO" textFill="#f5f0f0" visible="false">
-                         <font>
-                             <Font size="19.0" />
-                         </font>
-                         <tooltip>
-                             <Tooltip text="Empty Tooltip" />
-                         </tooltip>
-                     </Label>
-                  <Accordion fx:id="searchCityWeather" layoutX="607.0" layoutY="196.0" prefHeight="92.0" prefWidth="266.0">
-                    <panes>
-                      <TitledPane alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="69.0" prefWidth="211.0" text="Cities of the" textAlignment="JUSTIFY">
-                           <content>
-                                 <ComboBox fx:id="cities" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="239.0" promptText="Adamantina" style="-fx-background-color: #006400;" visibleRowCount="5" />
-                           </content>
-                        </TitledPane>
-                      <TitledPane alignment="TOP_CENTER" contentDisplay="TOP" text="Search Weather">
-                           <content>
-                                 <Button mnemonicParsing="false" onAction="#searchWeather" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: #006400;" text="weather" />
-                           </content>
-                        </TitledPane>
-                    </panes>
-                  </Accordion>
                   <SVGPath fx:id="imgteste" content="M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22z" layoutX="777.0" layoutY="29.0" />
+                     <Label fx:id="namePR" alignment="CENTER" layoutX="341.0" layoutY="420.0" onMouseClicked="#searchCities" prefHeight="46.0" prefWidth="41.0" text="PR" textFill="#f5f0f0">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                         <tooltip>
+                             <Tooltip text="Empty Tooltip" />
+                         </tooltip>
+                     </Label>
 
                  </children></AnchorPane>
 
@@ -267,8 +289,15 @@
 
 
 
-         </content></TitledPane>
-    <TitledPane fx:id="aba02" expanded="false" text="Forecast Brazil">
+         </content>
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../imgWeather/brasil.png" />
+               </image>
+            </ImageView>
+         </graphic></TitledPane>
+    <TitledPane fx:id="aba02" expanded="false" text="                                                                                   Forecast Brazil">
          <content>
              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                  <children>
@@ -277,7 +306,7 @@
                         <Image url="@../../../../imgWeather/fundo.jpg" />
                      </image>
                   </ImageView>
-                  <Pane fx:id="panebase" layoutX="-1.0" opacity="0.87" prefHeight="654.0" prefWidth="950.0" style="-fx-background-color: #000;" />
+                  <Pane fx:id="panebase" layoutX="-1.0" opacity="0.91" prefHeight="654.0" prefWidth="950.0" style="-fx-background-color: #000;" />
                      <Label fx:id="teste1" layoutX="277.0" layoutY="234.0" textAlignment="CENTER" />
                   <Pane fx:id="paneWeatherIni" layoutX="70.0" layoutY="120.0" prefHeight="345.0" prefWidth="276.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                      <children>
@@ -527,6 +556,22 @@
                   </Pane>
 
                  </children></AnchorPane>
-         </content></TitledPane>
+         </content>
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../imgWeather/weather.png" />
+               </image>
+            </ImageView>
+         </graphic></TitledPane>
   </panes>
+   <contextMenu>
+      <ContextMenu>
+        <items>
+          <MenuItem fx:id="screenExit" mnemonicParsing="false" text="Exit" />
+            <MenuItem fx:id="screenMinimize" mnemonicParsing="false" text="Minimize" />
+        </items>
+
+            </ContextMenu>
+   </contextMenu>
 </Accordion>
