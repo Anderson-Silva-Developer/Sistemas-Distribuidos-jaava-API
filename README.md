@@ -9,16 +9,19 @@
 * [Spring Boot](https://spring.io/projects/spring-boot)
 * [API de previsão do tempo e dados climáticos HG Weather](https://hgbrasil.com/)
 * [MySQL Workbench](https://www.mysql.com/products/workbench/)
-* 
+* [MYZAP](https://github.com/billbarsch/myzap)
 ## Descrição do projeto
 
 <div style="text-align: justify"> O presente projeto foi desenvolvido como prática e atribuição da terceira nota da disciplica Sistemas distribuidos tendo como foco desenvolver uma API com objetivo de disponibilizar  todo processo de CRUD a presente API tem o objetivo de disponibilizar aos usuario a previsão do tempo sendo a mesma pesquisada por cidade e estado .</div>
+
+## para todas as operações é preciso a url_base:
+* http://localhost:8080/api_weatherForecast
 
 ## Instruções para Uso como exemplo localhost
 
 ## Buscar previsão do tempo, para essa ação não é preciso nenhuma autenticação
 * como exemplo logo abaixo depois de cada significado dos valores  do json de resposta será pesquisado a previsão de Caxias Maranhão,
-"<strong> Caxias/Maranhão </strong>"
+"<strong> url_base/Caxias/Maranhão </strong>"
 
 
 ## significado de cada código
@@ -155,13 +158,13 @@
 }<br> 
 </div>
 
-## Operações de cadastro,listar,atualização e exclusão de usuario
+## Operações de cadastrar, lista, atualização e exclusão de usuário
 * essa face consiste em registrar um usuario assim como as demais operações para com o mesmo afim de usar a fase de envio de previsão via whatssap
-* Essa face será um adicional no projeto, sendo o objetivo já foi alcançado com a versão presente
-## Adicinar usuario 
+* Essa face será um adicional futuramente ao projeto, sendo o objetivo já foi alcançado com a versão presente
+## Adicinar usuário 
 
 
-* Deve ser adicionado na requisição um json com os seguintes dados
+* Como requisito url_base+("/add/") e no corpo da mensagem um json com os seguintes dados
 
 ![adduser](https://user-images.githubusercontent.com/51086466/135616072-4f8a4c52-95ea-45b2-90f9-cd8faf44c3fd.png)
 
@@ -171,13 +174,36 @@
  * nameUse é o seu nome de usuario
  * passWord é a sua senha
  
- ## Buacar Usuario
- * como requisto número de telefone e senha <strong>55dddxxxxxxxxx/passWord</strong> como retorno o usuario
+ ## Buscar Usuário
+ * como requisto url_base+número de telefone e senha <strong>url_base/55dddxxxxxxxxx/passWord</strong> como retorno o usuário
  ![buscarUser](https://user-images.githubusercontent.com/51086466/135617706-861b93e3-c5b4-4250-80bb-fe2e03d8a3f5.png)
 
+  ##  Atualizar Usuário
+  * como requisto url_base+("/update/")+número de telefone e senha <strong>url_base/update/55dddxxxxxxxxx/passWord</strong> adicionando o novo usuário no corpo da requisição como retorno o usuario novo
+ * Usuário Atual
+  ![usuarioAtual](https://user-images.githubusercontent.com/51086466/135620562-d67390a4-227c-42ad-ac7b-ea9872ab804b.png)
+
+* Atualizado
+![atualizado](https://user-images.githubusercontent.com/51086466/135620978-3cbfa387-4383-4e6a-9db7-6a434fbb8cae.png)
   
-  
+  ## Excluir Usuário
+  * como requisto adicionar url_base+("/delete/")+número de telefone e senha <strong>url_base/delete/55dddxxxxxxxxx/passWord</strong> retorna o usuário excluido para confirmar
 
+ ![delete](https://user-images.githubusercontent.com/51086466/135621696-ef602c5c-53c9-4cb1-985e-4dd1249f3365.png)
+## Descrições de Erros
+* Error ao tentar cadastrar usuário pode ocorrer po usuário existente ou erro na estrutura json consideração um ou todos os campos do usuário 
 
+![erroadd](https://user-images.githubusercontent.com/51086466/135626268-f657df9c-4159-42ce-9c10-2737721dca5b.png)
 
+* Error ao tentar Excluir um usuário pode ocorrer por usuário não existente ou (número de telefone/senha) errados
+![errodelete](https://user-images.githubusercontent.com/51086466/135626829-5052105b-204c-4999-a0b2-d8629018d20d.png)
 
+* Error ao tentar Atualizar usuário pode ocorrer por usuário não existente ou (número de telefone/senha) errados assim como a estrutura json
+![erroupdate](https://user-images.githubusercontent.com/51086466/135627348-4a5a7dc4-1c84-492c-beae-146b79dde535.png)
+
+* Error ao buscar usuário pode ocorrer por usuário não existente ou (número de telefone/senha) errados
+![buscaerror](https://user-images.githubusercontent.com/51086466/135627904-b08bc426-c7cc-4132-8fb2-9217078e7a1a.png)
+
+## Observações
+* KEY_WEATHER representa a chave do usuário da API externa hgbrasil.
+* Mzap Api que será usada futuramente para envio de mensagem no momento em testes  no presente projeto
