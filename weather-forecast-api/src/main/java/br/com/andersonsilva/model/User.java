@@ -12,12 +12,18 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
-public class User {
+@Table
+public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
-    private String  name;
-    private  String username;
+    private long id;
+    @Column(unique = true)
+    private String numberFone;
+    @Column(unique = true)
+    private String email;
+    @Column(unique = true)
+    private String nameUse;
+    @Column(unique = true)
+    private String passWord;
 
 }

@@ -23,22 +23,26 @@ public class WeatheForecastService {
     WebClient webClient;
     Gson gson=new Gson();
     public WeatheForecast getWeatherForecast(String country,String state) throws IOException {
+//     //key EM https://hgbrasil.com/
+        String url="weather?key="+System.getenv("KEY_WEATHER")+"&city_name="+country+","+state;
 
-//        Mono<WeatheForecast> fluxWeathForecast = webClient.method(HttpMethod.GET)
-//                .uri("weather?key="+System.getenv("KEY_WEATHER")+"&city_name={country},{state}",country,state)
-//                .retrieve()
-//                .bodyToMono(WeatheForecast.class);
-//        System.out.println(fluxWeathForecast.block());
-//        String json = gson.toJson(fluxWeathForecast.block().getResults());
-//        JsonObject convertedObject = new Gson().fromJson(json, JsonObject.class);
-//        System.out.println(fluxWeathForecast.block());//
-//        return fluxWeathForecast.block();
-        Teste teste=new Teste();
-        try {
-            return  teste.Teste_();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return null;
+        System.out.println(url);
+
+        Mono<WeatheForecast> fluxWeathForecast = webClient.method(HttpMethod.GET)
+                .uri(url)
+                .retrieve()
+                .bodyToMono(WeatheForecast.class);
+        System.out.println(fluxWeathForecast.block());
+        String json = gson.toJson(fluxWeathForecast.block().getResults());
+        JsonObject convertedObject = new Gson().fromJson(json, JsonObject.class);
+        System.out.println(fluxWeathForecast.block());//
+        return fluxWeathForecast.block();
+//        Teste teste=new Teste();
+//        try {
+//            return  teste.Teste_();
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
     }
 }
