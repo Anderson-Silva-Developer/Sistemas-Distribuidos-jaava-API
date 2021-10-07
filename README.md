@@ -161,7 +161,7 @@
 ## Operações de cadastrar, lista, atualização e exclusão de usuário
 * essa face consiste em registrar um usuario assim como as demais operações para com o mesmo afim de usar a fase de envio de previsão via whatssap
 * Essa face será um adicional futuramente ao projeto, sendo o objetivo já foi alcançado com a versão presente
-## Adicinar usuário 
+## Adicionar usuário 
 
 
 * Como requisito url_base+("/add/") e no corpo da mensagem um json com os seguintes dados
